@@ -29,6 +29,7 @@
         <zkclient.version>0.10</zkclient.version>
         <curator.version>2.12.0</curator.version>
         <redis-cli.version>3.0.0</redis-cli.version>
+        <hadoop-client.version>2.7.3</hadoop-client.version>
     </properties>
 
     <dependencies>
@@ -97,6 +98,13 @@
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
             <version>${redis-cli.version}</version>
+        </dependency>
+
+        <!-- hadoop 相关依赖 -->
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-client</artifactId>
+            <version>${hadoop-client.version}</version>
         </dependency>
 
     </dependencies>
