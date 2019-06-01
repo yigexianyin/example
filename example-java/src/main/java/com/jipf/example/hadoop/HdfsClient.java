@@ -11,6 +11,11 @@ public class HdfsClient {
 
     public static FileSystem fileSystem;
 
+    /**
+     * 单节点连接hdfs
+     *
+     * @param hdfsProperties
+     */
     public static void initHadoop1Connect(HdfsProperties hdfsProperties) {
 
         try {
@@ -26,6 +31,10 @@ public class HdfsClient {
         }
     }
 
+    /**
+     * HA 集群连接
+     * @param hdfsProperties
+     */
     public static void initHadoop2Connect(HdfsProperties hdfsProperties) {
 
         try {
@@ -75,6 +84,14 @@ public class HdfsClient {
         hdfsProperties.setNameNode2Url("hdfs://10.111.32.26:8020");
         initHadoop2Connect(hdfsProperties);
 
+
+//        hdfsProperties.setUrl("hdfs://geonamenodeha");
+//        hdfsProperties.setUser("gai");
+//        hdfsProperties.setNameServices("geonamenodeha");
+//        hdfsProperties.setNns(new String[]{"nn1", "nn2"});
+//        hdfsProperties.setNameNode1Url("hdfs://172.16.9.16:8020");
+//        hdfsProperties.setNameNode2Url("hdfs://172.16.9.17:8020");
+//        initHadoop2Connect(hdfsProperties);
 
         try {
 
