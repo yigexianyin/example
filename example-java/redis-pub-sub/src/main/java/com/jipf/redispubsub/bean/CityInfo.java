@@ -1,10 +1,7 @@
 package com.jipf.redispubsub.bean;
 
-import lombok.Data;
-
 import java.io.Serializable;
 
-@Data
 public class CityInfo implements Serializable {
 
     public CityInfo(String city, Double longitude, Double latitude) {
@@ -29,4 +26,28 @@ public class CityInfo implements Serializable {
      * 纬度
      */
     private Double latitude;
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
 }
