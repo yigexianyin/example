@@ -1,6 +1,6 @@
-package com.jipf.example.redis.config;
+package com.jipf.redispubsub.config;
 
-import com.jipf.example.redis.sub.SubscribeListener;
+import com.jipf.redispubsub.sub.SubscribeListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

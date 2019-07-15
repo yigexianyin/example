@@ -1,4 +1,4 @@
-package com.jipf.example.redis.sub;
+package com.jipf.redispubsub.sub;
 
 import org.springframework.data.redis.connection.Message;
 import org.springframework.data.redis.connection.MessageListener;
