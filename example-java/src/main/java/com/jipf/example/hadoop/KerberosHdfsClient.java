@@ -32,11 +32,11 @@ public class KerberosHdfsClient {
      */
     private static void kerberosConfig1(Configuration config) {
         /**设置java安全krb5配置,其中krb5.conf文件可以从成功开启kerberos的集群任意一台节点/etc/krb5.conf拿到，放置本地*/
-        String krb5File = "D:\\data1\\krb5.conf";
+        String krb5File = "E:\\data1\\krb5.conf";
         /** kerberos principal*/
-        String kerUser = "hdfs-geotmt@GAI.COM";
+        String kerUser = "gai/10.111.32.189@GAI.COM";
         /** 对应kerberos principal的keytab文件,从服务器获取放置本地*/
-        String keyPath = "D:\\data1\\hdfs.headless.keytab";
+        String keyPath = "E:\\data1\\gai.10.111.32.189.keytab";
         /** 设置krb5.conf到环境变量*/
         System.setProperty("java.security.krb5.conf", krb5File);
         /** 设置安全认证方式为kerberos */
@@ -58,11 +58,11 @@ public class KerberosHdfsClient {
     private static void kerberosConfig2(Configuration config) {
 
         /**设置java安全krb5配置,其中krb5.conf文件可以从成功开启kerberos的集群任意一台节点/etc/krb5.conf拿到，放置本地*/
-        String krb5File = "D:\\data1\\krb5.conf";
+        String krb5File = "E:\\data1\\krb5.conf";
         /** kerberos principal*/
-        String kerUser = "hdfs-geotmt@GAI.COM";
+        String kerUser = "gai/10.111.32.189@GAI.COM";
         /** 对应kerberos principal的keytab文件,从服务器获取放置本地*/
-        String keyPath = "D:\\data1\\hdfs.headless.keytab";
+        String keyPath = "E:\\data1\\gai.10.111.32.189.keytab";
         /** 设置krb5.conf到环境变量*/
         System.setProperty("java.security.krb5.conf", krb5File);
         /** hadoop集群任一节点拿配置文件到本地*/
@@ -173,9 +173,10 @@ public class KerberosHdfsClient {
         try {
             stats = hdfs.listStatus(new Path(dir));
             for (FileStatus file : stats) {
-                if (file.isFile() && file.getLen() != 0) {
-                    result.add(file.getPath().toUri().getPath());
-                }
+//                if (file.isFile() && file.getLen() != 0) {
+//                    result.add(file.getPath().toUri().getPath());
+//                }
+                result.add(file.getPath().toUri().getPath());
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -224,11 +225,11 @@ public class KerberosHdfsClient {
     public static void main(String[] args) {
         try {
             KerberosHdfsClient hdfsUtil = new KerberosHdfsClient("10.111.32.184", "8020");
-//            hdfsUtil.uploadFileToHdfs("111111","/user/dp/file/data/temp/11111.csv");
+//            hdfsUtil.uploadFileToHdfs("111111","/user/gai/file/data/temp/11111.csv");
 //            hdfsUtil.delete("/user/dp/file/data/temp/11111.csv");
-            List<String> list = hdfsUtil.readDirList("/user/dp/file/data/temp/");
+            List<String> list = hdfsUtil.readDirList("/user/gai/file/data");
             System.out.println("==============================================");
-            System.out.println(list);
+            list.stream().forEach(System.out::println);
             System.out.println("==============================================");
         } catch (Exception e) {
             e.printStackTrace();
