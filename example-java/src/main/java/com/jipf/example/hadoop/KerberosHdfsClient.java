@@ -105,6 +105,8 @@ public class KerberosHdfsClient {
             // 第一位为uri，第二位为config，第三位是登录的用户
             //方式一
             return FileSystem.get(uri, config);
+            //kerberos 认证不需要 设置访问用户
+//            return FileSystem.get(uri, config,"gai");
             //方式二
 //            return FileSystem.get(config);
         } catch (IOException | URISyntaxException e) {
